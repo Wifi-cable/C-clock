@@ -9,3 +9,6 @@ clock1.hex: clock1.elf
 	
 magic: clock1.hex
 	avrdude -c avrispmkii -p m16 -B 10 -U flash:w:clock1.hex 
+	
+defuse: 
+	avrdude -c avrispmkii -p m16 -B 10 -U lfuse:w:0xe1:m -U hfuse:w:0xd9:m
