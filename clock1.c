@@ -27,8 +27,8 @@ int main (void){
 	DDRC= 0xff;	//otput :mintes
 	DDRD= 0xff;	//output	:hours
 		
-	TCCR0 = 0x0b;
-	OCR0 = 124;
+	TCCR0 = 0x0b;	// pre devisor
+	OCR0 = 127;
 	TIMSK = 0x02;
 	uint8_t index=0;
 	
@@ -65,12 +65,12 @@ int main (void){
         softtimer++;
         
             
-        if (softtimer >= 123){	// 125 == 1second passed
+        if (softtimer >= 100){	// 125 == 1second passed
             softtimer = 0;
             timer++;
             buttonTime++;
             
-            if(timer>=15){
+            if(timer>=18){
 	            second++;
 	            timer=0;
             }
