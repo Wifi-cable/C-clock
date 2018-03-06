@@ -13,7 +13,7 @@ int setMinute;
 int setHour;
 uint8_t timer;
 uint8_t buttonTime;
-//uint8_t hourArray[12] = {0,8,4,12,2,10,6,14,1,9,5,13};
+
 
    ISR(TIMER0_COMP_vect) {// 125.00 times per second interrupt service routine.
      flag=1;	// flag = true;
@@ -37,8 +37,10 @@ int main (void){
 	sei();	// enable flags 
 	 
 	while(1){	// forever
-		setHour=PINB&0x01;
-		setMinute=PINB&0x02;
+//		setHour=PINB&0x01;
+//		setMinute=PINB&0x02;
+			setHour= PINB&0x02;
+			setMinute=PINB&0x01;
 		
 		if(second>=60){	//second overfows 
 			second=0;
